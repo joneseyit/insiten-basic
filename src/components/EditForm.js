@@ -76,9 +76,8 @@ class EditForm extends Component {
   }
 }
 
-const mapStateToProps = ({editCompany, companies}) => {
+const mapStateToProps = ({companies}) => {
   return { 
-    editCompany: editCompany, 
     companies: companies
   }
 }
