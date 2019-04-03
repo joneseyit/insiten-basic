@@ -5,7 +5,7 @@ import EditForm from "../components/EditForm";
 import CreateCompany from "../components/CreateCompany";
 import { connect } from 'react-redux'
 import { addCompanies } from '../redux/actions'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Container } from 'semantic-ui-react'
 
 
 class CompanyContainer extends Component {
@@ -46,23 +46,25 @@ class CompanyContainer extends Component {
   render() {
     return (
       <div>
-       <Segment>
-          <div style={{padding: '15px'}}>
-          <CreateCompany />
-          </div>
-          {this.state.showEditForm ? (
-            <Segment>
-              <EditForm
-                company={this.state.editCompany}
-                handleEditSubmit={this.handleEditSubmit}
-              />
+        <Container>
+          <Segment>
+              <div style={{padding: '15px'}}>
+              <CreateCompany />
+              </div>
+              {this.state.showEditForm ? (
+                <Segment>
+                  <EditForm
+                    company={this.state.editCompany}
+                    handleEditSubmit={this.handleEditSubmit}
+                  />
+                </Segment>
+              ) : null}
             </Segment>
-          ) : null}
-        </Segment>
 
-        <CompanyList
-          handleEditClick={this.handleEditClick}
-        />
+            <CompanyList
+              handleEditClick={this.handleEditClick}
+            />
+          </Container>
       </div>
     );
   }
